@@ -1,21 +1,39 @@
 \documentclass[a4paper,12pt]{article}
+
+\usepackage[
+    left=2.5cm,
+    right=2.5cm,
+    top=1.5cm,
+    bottom=1.5cm,
+    headheight=74.2721pt,
+    includeheadfoot
+]{geometry}
+
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{tabularray}  % already loads xcolor
+\UseTblrLibrary{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{multicol}
-\usepackage[table,xcdraw]{xcolor}
-\usepackage[left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm, headheight=60.02979pt, includeheadfoot]{geometry}
-\usepackage{pgfplots}
 
-\setlength{\topmargin}{-1.5cm}
-\setlength{\textheight}{25cm}
-\setlength{\textwidth}{16cm}
-\setlength{\oddsidemargin}{0.2cm}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 \pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}  % Remove header rule
+\fancyhead[L]{
+    \includegraphics[width=0.4\linewidth]{IMVheader.png} \\
+    \hrulefill \\  % simulate header rule
+}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+\fancyfoot[L]{\textsuperscript{\textcopyright{}} IMV \the\year{}}  % always up-to-date year
 
 \begin{document}
 
@@ -27,9 +45,9 @@
     \includegraphics[width=0.2\linewidth]{IMV yt.png}
     \vspace{0.2cm}
     
-    \LARGE \textbf{Mathematical Methods (CAS) U1} \\
+    \LARGE \textbf{Mathematical Methods (CAS) U34} \\
     \vspace{0.2cm}
-    \LARGE \textbf{Written Examination 1} \\
+    \LARGE \textbf{Written Examination 2} \\
     \vspace{0.2cm}
     \Large Accreditation Period $\sim$ 2023--2027 \\
     \vspace{1cm}
@@ -106,12 +124,21 @@
 
 % Question section
 \noindent \textbf{Question 1} \\[0.3cm]
-For the differential equation \( y = \frac{dy}{dx}, y_0 = 5 \). Find the solution to this differential equation. \\[0.3cm]
+The period and range of the graph of $y=2\sin(\frac{\pi}{6}(x-1))+\tan(\frac{\pi}{5}x)-\frac{\pi}{3}$ are respectively:\\[0.3cm]
 
-\noindent \textbf{A.} \( y = e^x \) \\[0.3cm]
-\textbf{B.} \( y = e^{5x} \) \\[0.3cm]
-\textbf{C.} \( y = 5e^x \) \\[0.3cm]
-\textbf{D.} \( y = 5 \)
+\noindent \textbf{A.} $60\pi$, $\mathbb{R}$ \\[0.3cm]
+\textbf{B.} 60, $[-2-\frac{\pi}{3},2-\frac{\pi}{3}]$ \\[0.3cm]
+\textbf{C.} $60\pi$, $[-2-\frac{\pi}{3},2-\frac{\pi}{3}]$ \\[0.3cm]
+\textbf{D.} 60, $\mathbb{R}$ \\[1.5cm]
+
+
+\noindent \textbf{Question 2} \\[0.3cm]
+Which of the following hold true for all real values of $x$?\\[0.3cm]
+
+\noindent \textbf{A.} $\sin(\sin^2(x))+\cos(\sin^2(x))=1$ \\[0.3cm]
+\textbf{B.} $\sin^2(\sin(x))+\cos^2(\cos(x))=1$ \\[0.3cm]
+\textbf{C.} $\sin^2(\sin(x))+\cos^2(\cos(x))=1$ \\[0.3cm]
+\textbf{D.} $\sin^2(\sin^2(x))+\cos^2(\cos^2(x))=1$ \newpage
 
 
 
@@ -132,18 +159,13 @@ For the differential equation \( y = \frac{dy}{dx}, y_0 = 5 \). Find the solutio
     }
 \end{center}
 
-
 % Question section
 \noindent \textbf{Question 1} \hfill \textbf{(2 marks)} \\[0.3cm]
-a) Find the derivative of \( y \) with respect to \( x \) where \( y = x^x \). \hfill \text{(2 marks)} \\[1cm]
+Let the function \(f(x)\) be defined as \((x-1)^2(x+1)^2\) where \(x \in R\) \\ [0.3cm]
+\noindent \textbf{a) Find the tangent of \( f(x) \) at the point \( a \) in terms of \(a\).}\hfill \\[0.1cm] \hfill \text{(1 mark)} \\[1cm]
 \rule{\textwidth}{0.5pt} \\[0.7cm]
 \rule{\textwidth}{0.5pt} \\[0.7cm]
 \rule{\textwidth}{0.5pt} \\[0.7cm]
 \rule{\textwidth}{0.5pt} \\[0.7cm]
-\rule{\textwidth}{0.5pt} \\[2cm]
-b) Hence, state whether there are any stationary points \hfill \text{(1 marks)} \\[1cm]
-\rule{\textwidth}{0.5pt} \\[0.7cm]
-\rule{\textwidth}{0.5pt} \\[0.7cm]
-\rule{\textwidth}{0.5pt} \\[2cm]
-
+\rule{\textwidth}{0.5pt} \\[1.5cm]
 \end{document}
