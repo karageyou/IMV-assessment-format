@@ -1,74 +1,29 @@
 \documentclass[a4paper,12pt]{article}
+
+\usepackage[
+    left=2.5cm,
+    right=2.5cm,
+    top=1.5cm,
+    bottom=1.5cm,
+    headheight=74.2721pt,
+    includeheadfoot
+]{geometry}
+
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{fancyhdr}
-\usepackage{amsmath}
 \usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{tabularray}  % already loads xcolor
+\UseTblrLibrary{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage[table,xcdraw]{xcolor}
-\usepackage[left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm, headheight=60.02979pt, includeheadfoot]{geometry}
+
 \usepackage{pgfplots}
-
-\setlength{\topmargin}{-1.5cm}
-\setlength{\textheight}{25cm}
-\setlength{\textwidth}{16cm}
-\setlength{\oddsidemargin}{0.2cm}
-
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[C]{\thepage}
-
-\begin{document}
-
-\begin{center}
-    \vspace{0.2cm}
-    
-    \Huge \textbf{INSTITUTE OF MATHEMATICS \\ VICTORIA} \\
-    \vspace{0.2cm}
-    \includegraphics[width=0.2\linewidth]{IMV yt.png}
-    \vspace{0.2cm}
-    
-    \LARGE \textbf{Mathematical Methods (CAS) U1} \\
-    \vspace{0.2cm}
-    \LARGE \textbf{Written Examination 1} \\
-    \vspace{0.2cm}
-    \Large Accreditation Period $\sim$ 2023--2027 \\
-    \vspace{1cm}
-    
-    \normalsize \textbf{Name \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} \\
-    \vspace{1cm}
-    
-    \begin{tabular}{|l|c|c|c|c|}
-        \hline
-        \textbf{Section} & \textbf{Time Recommended} & \textbf{Time Given} & \textbf{Marks Allocated} & \textbf{Marks Awarded} \\
-        \hline
-        A & 35 minutes & 60 minutes & 40 & \\
-        \hline
-    \end{tabular}
-    
-    \vspace{1cm}
-    
-    \begin{minipage}{0.9\textwidth}
-    \begin{itemize}
-        \item Students are permitted to bring into the examination room: pens, pencils, highlighters, erasers, sharpeners, rulers.
-        \item Students are \textbf{NOT} permitted to bring into the examination room: notes of any kind, blank sheets of paper, correction fluid/tape or a calculator of any type.
-    \end{itemize}
-    \end{minipage}
-    
-    \vspace{1cm}
-    
-    \textbf{Instructions}
-    \begin{itemize}
-        \item Detach the formula sheet from the centre of this book during reading time.
-        \item Write your student number in the space provided above on this page.
-        \item All written responses must be in English.
-    \end{itemize}
-    
-    \vspace{0.5cm}
-    \textbf{Students are NOT permitted access to mobile phones and/or any other unauthorised electronic devices.}
-    
-\end{center}
-
-\newpage
+\pgfplotsset{compat=1.18}
 
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}  % Remove header rule
@@ -80,24 +35,61 @@
 \fancyfoot[R]{\thepage}
 \fancyfoot[L]{\textsuperscript{\textcopyright{}} IMV \the\year{}}  % always up-to-date year
 
+\begin{document}
+
+\centering
+{\Huge\bfseries%
+    INSTITUTE OF MATHEMATICS \\[0.5\baselineskip]
+    VICTORIA \\[0.5\baselineskip]
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\linewidth]{IMV yt.png}
+    \end{figure}
+}
+
+{\LARGE\bfseries
+    Mathematical Methods (CAS) U1 \\[0.2cm]
+    Written Examination 1
+} \\[0.2cm]
+
+{\Large
+    Accreditation Period $\sim$ 2023--2027
+} \\[1cm]
+
+{\bfseries
+    Name: \rule{4cm}{0.4pt}
+} \\[1cm]
+
+\begin{table}[H]
+    \centering
+    \begin{tblr}{width=\linewidth, colspec={X[l, 0.5] *4{X[c]}}, row{1-Z}={m}, hlines, vlines, row{1}={font=\bfseries}}
+        Section & {Time \\ Recommended} & {Time \\ Given} & {Marks \\ Allocated} & {Marks \\ Awarded} \\
+        A & 35 minutes & 60 minutes & 40 &
+    \end{tblr}
+\end{table}
+
+\textbf{Instructions}
+\begin{itemize}
+    \item Detach the formula sheet from the centre of this book during reading time.
+    \item Write your student number in the space provided above on this page.
+    \item All written responses must be in English.
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{Students are NOT permitted access to mobile phones and/or any other unauthorised electronic devices.}
+
 \newpage
 
-% Instructions box
-\begin{center}
-    \setlength{\fboxsep}{10pt} % Padding around the box content
-    \doublebox{
-        \begin{minipage}{0.9\textwidth}
-            \textbf{Instructions}
-            \vspace{0.2cm}
-            \begin{itemize}
-                \item Answer all questions in the spaces provided.
-                \item In all questions where a numerical answer is required, an exact value must be given unless otherwise specified.
-                \item In questions where more than one mark is available, appropriate working must be shown.
-                \item Unless otherwise indicated, the diagrams in this book are not drawn to scale.
-            \end{itemize}
-        \end{minipage}
-    }
-\end{center}
+% I thought you wanted a double-box, so I added a double box. If not, just remove the borderline= stuff and set the boxrule to 0pt.
+\begin{tcolorbox}[enhanced, width=0.95\linewidth, borderline={0.75pt}{-1.5pt}{black}, colframe=black, colback=white, colbacktitle=white, coltitle=black, fonttitle=\bfseries, adjusted title=center, halign title=center, boxrule=0.75pt, titlerule=0mm, toptitle=2.5mm, bottom=4mm, sharp corners=all, title={Instructions}]
+    \begin{itemize}[leftmargin=*]  % looks off in tcolorbox setting, so changing left margin
+        \item Answer all questions in the spaces provided.
+        \item In all questions where a numerical answer is required, an exact value must be given unless otherwise specified.
+        \item In questions where more than one mark is available, appropriate working must be shown.
+        \item Unless otherwise indicated, the diagrams in this book are not drawn to scale.
+    \end{itemize}
+\end{tcolorbox}
+
 
 % Question section
 \noindent \textbf{Question 1} \hfill \textbf{(2 marks)} \\[0.3cm]
